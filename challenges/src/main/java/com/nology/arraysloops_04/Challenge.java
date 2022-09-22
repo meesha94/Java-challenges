@@ -21,7 +21,11 @@ public class Challenge {
      * @return a new array containing the first and last items in the given array e.g. ["Ollie", "Bex"]
      */
     public String[] getFirstAndLast(String[] namesArr) {
-        return new String[0];
+        if (namesArr.length > 0) {
+            return new String[]{namesArr[0], namesArr[namesArr.length - 1]};
+        } else {
+            return new String[0];
+        }
     }
 
     /***
@@ -31,7 +35,11 @@ public class Challenge {
      * @return an amount e.g. 104
      */
     public int totalAges(int[] agesArr) {
-        return -1;
+        int sum = 0;
+        for(int value: agesArr){
+            sum += value;
+        };
+        return sum;
     }
 
     /***
@@ -41,7 +49,13 @@ public class Challenge {
      * @return Amount of odd numbers e.g. 3
      */
     public int getAmountOfOddNumbers(int[] numbersArr) {
-        return -1;
+        int total = 0;
+        for(int i =0; i< numbersArr.length; i++){
+            if(numbersArr[i] % 2 == 1){
+                total++;
+            }
+        };
+        return total;
     }
 
     // -------------- INTERMEDIATE --------------
@@ -57,7 +71,18 @@ public class Challenge {
      * @return a new array of all numbers between and including the min and max number. e.g. [3, 4, 5, 6]
      */
     public int[] getRange(int min, int max) {
-        return new int[] {};
+        if(min > max){
+            return new int[]{};
+        } else {
+    int[] range = new int[max - min + 1];
+        if (min < max) {
+            for (int i = min; i <= max; i++) {
+                range[i - min] = i;
+            }
+
+        }
+            return range;
+    }
     }
 
     /**
@@ -66,7 +91,17 @@ public class Challenge {
      * @return a string with the last name, followed by the first name e.g. "Evans Andy"
      */
     public String swapNames(String fullName) {
-        return "";
+        String[] names = fullName.split(" ");
+    StringBuilder reversedName = new StringBuilder(names.length);
+       for(int i = names.length - 1; i >= 0; i--){
+           if(names[i].length() != 0){
+               if(reversedName.length() != 0){
+                   reversedName.append(" ");
+               }
+               reversedName.append(names[i]);
+           }
+       }
+       return reversedName.toString();
     }
 
     /***
@@ -80,7 +115,13 @@ public class Challenge {
      * @return true or false depending on whether the newScore is the highest value in the array
      */
     public boolean isHighestScore(int[] scoresArr, int newScore) {
-        return false;
+        for (int i = 0; i < scoresArr.length; i++) {
+            if (scoresArr[i] < newScore){
+                return true;
+            }
+            return false;
+        }
+        return true;
     }
 
     // -------------- ADVANCED --------------

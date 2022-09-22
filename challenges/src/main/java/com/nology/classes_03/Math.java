@@ -22,6 +22,7 @@ public class Math {
      * Create 1 private field below:
      * - PI is a double and should be set to 3.141592653589793 by default
      */
+    private double PI = 3.141592653589793;
 
     /**
      * Create getters and setters for the fields above.
@@ -36,7 +37,14 @@ public class Math {
      * setPI should make sure the incoming number is between 3.1 and 3.2
      * If it isn't it should not update the PI field
      */
+    public double getPI() {
+        return PI;
+    }
 
+    public void setPI(double PI) {
+        if(PI > 3.1 && PI < 3.2)
+        this.PI = PI;
+    }
     /**
      * Complete the min method
      *
@@ -53,6 +61,15 @@ public class Math {
      * @return double The smaller of the two numbers
      */
 
+    public double min(double num1, double num2){
+        if (num1 < num2){
+            return num1;
+        } else {
+            return num2;
+        }
+
+    }
+
     /**
      * Complete the max method
      *
@@ -67,6 +84,15 @@ public class Math {
      * @param num2 The second number to check
      * @return double The larger of the two numbers
      */
+    public double max (double num1, double num2){
+        if (num1 > num2){
+            return num1;
+        } else {
+            return num2;
+        }
+
+    }
+
 
     /**
      * Complete the calculateCircleArea method
@@ -84,6 +110,14 @@ public class Math {
      * @return double The area of the circle
      */
 
+    public double calculateCircleArea(double radius){
+        if (radius > 0){
+            return PI * (radius * radius);
+        } else {
+            return -1;
+        }
+
+    }
     /**
      * Complete the pow method
      *
@@ -103,4 +137,12 @@ public class Math {
      * @return double The larger of the two numbers
      */
 
+    public double pow(double number, double power){
+        double result = 1;
+        while (power != 0) {
+            result = result * number;
+            power--;
+        }
+        return result;
+    }
 }

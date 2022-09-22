@@ -20,8 +20,10 @@ public class Challenge {
      * @return returns a string which is the concatenation of the 2 parameters
      */
     public String getFullName(String firstName, String lastName) {
-        return "";
+        return firstName + " " + lastName;
     }
+
+    ;
 
     /***
      * Write a method that checks if a number is within 0 and a given range. Both inclusive.
@@ -31,8 +33,14 @@ public class Challenge {
      * @return returns a boolean based on whether the number is between 0 and the range limit
      */
     public boolean isWithinRange(int number, int rangeLimit) {
-        return false;
+        if (number >= 0 && number <= rangeLimit) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
+
 
 
     /***
@@ -50,7 +58,19 @@ public class Challenge {
      * @return returns the result of the equation
      */
     public int stringCalculator(int numberOne, int numberTwo, String operator) {
-        return -1;
+        if (numberOne < 0 || numberTwo < 0) {
+            return -1;
+        } else if (operator == "*") {
+            return numberOne * numberTwo;
+        } else if (operator == "+") {
+            return numberOne + numberTwo;
+        } else if (operator == "/") {
+            return numberOne / numberTwo;
+        } else if (operator == "-") {
+            return numberOne - numberTwo;
+        } else {
+            return -1;
+        }
     }
 
 
@@ -70,6 +90,15 @@ public class Challenge {
      * @return If we need to wake up or not based on the conditions above.
      */
     public boolean shouldWakeUp(boolean barking, int hourOfDay) {
+        if (barking == true ) {
+            if (hourOfDay < 0 || hourOfDay > 23) {
+                return false;
+            } else if (hourOfDay < 8 || hourOfDay > 22) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         return false;
     }
 
@@ -83,8 +112,22 @@ public class Challenge {
      * character in the string: a"
      */
     public String getMiddleCharacter(String word) {
-        return "";
+        int middle, length;
+        if (word.contains(" ")){
+            return "Invalid Input";
+        } else if (word.equals("")){
+            return "Invalid Input";
+        } else if (word.length() % 2 == 0) {
+            middle = word.length() / 2 - 1;
+            length = 2;
+        } else {
+            middle = word.length() / 2;
+            length = 1;
+        }
+        return word.substring(middle, middle + length);
     }
+
+
 
 
     /***
@@ -99,7 +142,15 @@ public class Challenge {
      * @return returns a string in the format above if the input is valid, or "Invalid value"
      */
     public String printMegaBytesAndKiloBytes(int kiloBytes) {
-        return "";
+
+        if (kiloBytes < 0){
+            return "Invalid Value";
+        } else {
+           int mb = kiloBytes / 1024;
+           int kb = kiloBytes % 1024;
+           return kiloBytes +" KB = " + mb + " MB and " + kb + " KB";
+        }
+
     }
 
     // -------------- ADVANCED --------------
@@ -121,6 +172,7 @@ public class Challenge {
      * @return returns the total amount after x number of years (including the initial investment)
      */
     public String calculateReturn(int initialInvestment, int years, double rateOfInterest) {
+
         return "";
     }
 }

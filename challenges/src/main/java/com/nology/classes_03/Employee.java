@@ -16,6 +16,11 @@ package com.nology.classes_03;
 
 public class Employee {
 
+    public String name;
+    public String position;
+    public int rating;
+    public int yearsEmployed;
+    public int completedDeals;
     /**
      * Create 4 public fields:
      * - name is a string
@@ -30,35 +35,45 @@ public class Employee {
      */
     public Employee(String name, String position, int rating, int yearsEmployed, int completedDeals) {
         // complete the constructor in here
+        this.name = name;
+        this.position = position;
+        this.rating = rating;
+        this.yearsEmployed = yearsEmployed;
+        this.completedDeals = completedDeals;
     }
 
     /**
      * Complete the isPromotable method
-     *
+     * <p>
      * It needs to check if the employee rating is over 7, if so return true... else false
      *
      * @return boolean if employee is promotable
      */
     public boolean isPromotable() {
-        return false;
+        if (rating > 7) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
      * Complete the calculateDealsPerYear method
-     *
+     * <p>
      * It needs to calculate the average number of deals completed  each year since they have joined the company.
      *
      * @return int average deals per year
      */
     public int calculateDealsPerYear() {
-        return -1;
+        int averageDeals = completedDeals / yearsEmployed;
+        return averageDeals;
     }
 
     /**
      * Complete the hasBonusQualification method
-     *
+     * <p>
      * It needs to check if the employee is able to get a bonus.
-     *
+     * <p>
      * To get a bonus:
      * - They need a rating above 8.
      * - They need a deals per year average greater than or equal to 20.
@@ -66,6 +81,11 @@ public class Employee {
      * @return boolean if they are eligible for a bonus
      */
     public boolean hasBonusQualification() {
-        return false;
+
+        if (rating > 8 && calculateDealsPerYear() >= 20) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
